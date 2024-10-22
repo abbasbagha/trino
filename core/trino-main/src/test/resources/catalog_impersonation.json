@@ -10,6 +10,11 @@
             "allow": false
         },
         {
+            "original_user": "admin-other-test",
+            "new_user": "^(?i)(?!svc.*)[a-z0-9-_]+$",
+            "allow": true
+        },
+        {
             "original_user": "admin(-.*)?",
             "new_user": ".*"
         },

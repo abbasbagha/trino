@@ -88,7 +88,6 @@ public class TestFileBasedSystemAccessControl
     {
         TransactionManager transactionManager = createTestTransactionManager();
         AccessControlManager accessControlManager = newAccessControlManager(transactionManager, "catalog_impersonation.json");
-
         accessControlManager.checkCanImpersonateUser(Identity.ofUser("alice"), "bob");
         accessControlManager.checkCanImpersonateUser(Identity.ofUser("alice"), "charlie");
         try {
@@ -134,6 +133,7 @@ public class TestFileBasedSystemAccessControl
 
         AccessControlManager accessControlManagerWithPrincipal = newAccessControlManager(transactionManager, "catalog_principal.json");
         accessControlManagerWithPrincipal.checkCanImpersonateUser(Identity.ofUser("anything"), "anythingElse");
+        accessControlManager.checkCanImpersonateUser(Identity.ofUser("admin-other-test"), "regular-user");
     }
 
     @Test
